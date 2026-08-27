@@ -1,2 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;1,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --ink: #0A0D14;
+  --ink-2: #12161F;
+  --gold: #C9A961;
+  --gold-light: #E9DBB3;
+  --ivory: #F2EDE2;
+  --slate: #8A93A6;
+  --hairline: rgba(201, 169, 97, 0.22);
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: #0A0D14; color: #F2EDE2; font-family: sans-serif; }
+
+body {
+  background: var(--ink);
+  color: var(--ivory);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+}
+
+h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 500; }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+/* ---- Header ---- */
+header {
+  border-bottom: 1px solid var(--hairline);
+  position: sticky; top: 0;
+  background: rgba(10,13,20,0.9);
+}
+.nav {
+  max-width: 1180px; margin: 0 auto; padding: 18px 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.brand span { font-family: 'Fraunces', serif; font-size: 20px; letter-spacing: .06em; }
+.navlinks { display: flex; align-items: center; gap: 28px; }
+.navlinks a { color: var(--slate); font-size: 14px; }
+.navlinks a:hover { color: var(--ivory); }
+
+.btn {
+  display: inline-block; padding: 12px 22px; font-size: 12px;
+  letter-spacing: .08em; text-transform: uppercase; font-weight: 600;
+  border: 1px solid var(--gold); border-radius: 2px; cursor: pointer;
+}
+.btn-solid { background: var(--gold); color: var(--ink); }
+.btn-ghost { background: transparent; color: var(--gold); }
+
+/* ---- Hero ---- */
+.hero {
+  max-width: 700px; margin: 0 auto; padding: 90px 24px 60px;
+  text-align: center;
+}
+.hero h1 { font-size: clamp(32px, 6vw, 56px); line-height: 1.1; margin-bottom: 20px; }
+.hero .lead { color: var(--slate); margin-bottom: 30px; }
+.hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ---- Events section ---- */
+#events { max-width: 1180px; margin: 0 auto; padding: 60px 24px; }
+#events h2 { margin-bottom: 24px; }
+.grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+}
+
+/* ---- Footer ---- */
+footer {
+  border-top: 1px solid var(--hairline); text-align: center;
+  padding: 30px; color: var(--slate); font-size: 13px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .navlinks { display: none; }   /* mobile nav gets a proper menu in Module 4 polish pass */
+  .grid { grid-template-columns: 1fr; }
+}
