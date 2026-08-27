@@ -1,13 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurelia — Curated Gatherings</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurelia — Curated Gatherings</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-     
-     <script src="js/data.js"></script>
-     <script src="js/main.js"></script>
+
+  <header>
+    <div class="nav">
+      <a href="#" class="brand">
+        <span>AURELIA</span>
+      </a>
+      <nav class="navlinks">
+        <a href="#events">Events</a>
+        <a href="#">My Invitations</a>
+        <a href="#" class="btn btn-solid">Request Access</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Where the right people meet, by invitation.</h1>
+    <p class="lead">
+      Aurelia curates a private roster of galas, summits, and closed-door
+      gatherings for the world's most discerning hosts and guests.
+    </p>
+    <div class="hero-ctas">
+      <button class="btn btn-solid">View Upcoming Events</button>
+      <button class="btn btn-ghost">My Invitations</button>
+    </div>
+  </section>
+
+  <section id="events">
+    <h2>Browse all gatherings</h2>
+    <div class="grid" id="eventsGrid">
+      <!-- event cards will be injected here on Day 6 -->
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Aurelia Curated Gatherings.</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
