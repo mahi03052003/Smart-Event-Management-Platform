@@ -1,0 +1,20 @@
+Aurelia — Curated Gatherings
+Smart Event Management Platform — Module 1
+
+Internee: Mahzaib Irshad Internship ID: ZYNVEX-CERT-1049 Program: Web Development Module: 1 of 4 — Homepage, Layout & Event Listing Submission window: Aug 24 – Aug 30, 2026
+
+📌 About the Project
+
+Aurelia is a responsive, web-based event management platform for high-profile, invitation-style events (galas, executive summits, private launches). It lets users browse upcoming events, view event details, search and filter by category/date/location, and register for events through a personalized dashboard.
+
+This repository contains Module 1 of the 4-module build: the homepage, core visual identity, and a data-driven event listing.
+
+✅ What's Implemented in Module 1
+ Project structure and Git version control
+ Semantic HTML skeleton — navbar, hero section, footer
+ Full visual styling — dark theme with gold accent, custom typography (Fraunces + Inter)
+ Fully responsive layout (mobile / tablet / desktop breakpoints)
+ Event data model (js/data.js) — single source of truth for all event info
+ Reusable event card component
+ Dynamic rendering of event cards from data (no hardcoded HTML per event)
+ Featured Events section (auto-generated from the same data)

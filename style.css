@@ -108,3 +108,8 @@ footer {
   display: flex; justify-content: space-between;
   color: var(--slate); font-size: 12px;
 }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ticket-card { transition: none; }
+}
