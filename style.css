@@ -76,3 +76,35 @@ footer {
   .navlinks { display: none; }   /* mobile nav gets a proper menu in Module 4 polish pass */
   .grid { grid-template-columns: 1fr; }
 }
+.ticket-card {
+  background: var(--ink-2);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform .3s ease, border-color .3s ease;
+  cursor: pointer;
+}
+.ticket-card:hover { transform: translateY(-4px); border-color: var(--gold); }
+
+.card-art {
+  height: 140px;
+  background: linear-gradient(135deg, rgba(201,169,97,0.15), var(--ink) 70%);
+  position: relative;
+  display: flex; align-items: flex-end; padding: 16px;
+}
+.card-art .glyph {
+  font-family: 'Fraunces', serif; font-size: 52px; font-style: italic;
+  opacity: .35; position: absolute; right: 14px; top: 4px; color: var(--gold);
+}
+.card-tag {
+  font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+  background: rgba(10,13,20,0.55); border: 1px solid var(--hairline);
+  padding: 5px 10px; border-radius: 20px;
+}
+
+.card-body { padding: 20px; border-top: 1px dashed var(--hairline); }
+.card-body h3 { font-size: 19px; margin-bottom: 12px; }
+.card-meta {
+  display: flex; justify-content: space-between;
+  color: var(--slate); font-size: 12px;
+}
