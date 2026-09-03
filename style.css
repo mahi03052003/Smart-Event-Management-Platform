@@ -145,3 +145,14 @@ footer {
 .meta-row div { font-size: 12px; color: var(--slate); }
 .meta-row b { display: block; color: var(--ivory); font-size: 14px; font-weight: 600; margin-bottom: 2px; }
 #detailDesc { color: var(--slate); line-height: 1.7; margin-bottom: 22px; }
+
+.concierge {
+  background: var(--ink-2); border: 1px solid var(--hairline); border-radius: 4px;
+  padding: 4px 16px; margin-bottom: 22px;
+}
+.concierge input {
+  width: 100%; background: none; border: none; color: var(--ivory);
+  font-size: 14px; padding: 12px 0; font-family: 'Inter', sans-serif;
+}
+.concierge input:focus { outline: none; }
+.concierge input::placeholder { color: var(--slate); }

@@ -19,16 +19,20 @@ function cardHTML(event) {
 
 function openDetails(id) {
   const event = EVENTS.find(e => e.id === id);
-  console.log('Opening details for:', event.title); // temporary check
+  if (!event) return;
+
+  document.getElementById('detailGlyph').textContent = event.glyph;
+  document.getElementById('detailTag').textContent = event.category;
+  document.getElementById('detailTitle').textContent = event.title;
+  document.getElementById('detailDate').textContent = event.date;
+  document.getElementById('detailLoc').textContent = event.location;
+  document.getElementById('detailSeats').textContent = event.seats;
+  document.getElementById('detailDesc').textContent = event.desc;
 
   document.getElementById('events').classList.add('hidden');
   document.getElementById('eventDetails').classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
-document.getElementById('backToEvents').addEventListener('click', () => {
-  document.getElementById('eventDetails').classList.add('hidden');
-  document.getElementById('events').classList.remove('hidden');
-});
 
 // Renders a list of events into a target container by id
 function renderGrid(containerId, eventList) {
@@ -39,3 +43,17 @@ function renderGrid(containerId, eventList) {
 // Featured = first 3 events; full grid = all events
 renderGrid('featuredGrid', EVENTS.slice(0, 3));
 renderGrid('eventsGrid', EVENTS);
+
+function applyFilters() {
+  const query = document.getElementById('searchInput').value.trim().toLowerCase();
+
+  const filtered = EVENTS.filter(event =>
+    event.title.toLowerCase().includes(query) ||
+    event.location.toLowerCase().includes(query) ||
+    event.category.toLowerCase().includes(query)
+  );
+
+  renderGrid('eventsGrid', filtered);
+}
+
+document.getElementById('searchInput').addEventListener('input', applyFilters);
