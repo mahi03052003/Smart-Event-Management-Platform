@@ -1,20 +1,17 @@
 Aurelia — Curated Gatherings
-Smart Event Management Platform — Module 1
+Smart Event Management Platform — Module 2
 
-Internee: Mahzaib Irshad Internship ID: ZYNVEX-CERT-1049 Program: Web Development Module: 1 of 4 — Homepage, Layout & Event Listing Submission window: Aug 24 – Aug 30, 2026
+Internee: Mahzaib Irshad Internship ID: ZYNVEX-CERT-1049 Program: Web Development Module: 2 of 4 — Event Details, Search & Filtering Submission window: Aug 31 – Sep 6, 2026
 
-📌 About the Project
+📌 About This Module
 
-Aurelia is a responsive, web-based event management platform for high-profile, invitation-style events (galas, executive summits, private launches). It lets users browse upcoming events, view event details, search and filter by category/date/location, and register for events through a personalized dashboard.
+Module 2 builds directly on the Module 1 homepage. It adds the ability to open a full details view for any event, and to search and filter the event grid live — by keyword, and by category — before deciding which event to explore further.
 
-This repository contains Module 1 of the 4-module build: the homepage, core visual identity, and a data-driven event listing.
-
-✅ What's Implemented in Module 1
- Project structure and Git version control
- Semantic HTML skeleton — navbar, hero section, footer
- Full visual styling — dark theme with gold accent, custom typography (Fraunces + Inter)
- Fully responsive layout (mobile / tablet / desktop breakpoints)
- Event data model (js/data.js) — single source of truth for all event info
- Reusable event card component
- Dynamic rendering of event cards from data (no hardcoded HTML per event)
- Featured Events section (auto-generated from the same data)
+✅ What's Implemented in Module 2
+ Event details view — shows full info (image/glyph, category, title, date, location, seats left, description) for a single event
+ Card-to-details navigation — clicking any event card opens that event's details and hides the browse grid
+ "Back to Events" navigation from the details view
+ Live search bar — filters events by title, location, or category as the user types
+ Category filter chips — auto-generated from the event data, with active-state styling
+ Combined search + category filtering (both apply together, not independently)
+ Empty-state message when no events match the current search/filter combination
