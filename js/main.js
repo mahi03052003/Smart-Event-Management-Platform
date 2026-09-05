@@ -47,13 +47,49 @@ renderGrid('eventsGrid', EVENTS);
 function applyFilters() {
   const query = document.getElementById('searchInput').value.trim().toLowerCase();
 
-  const filtered = EVENTS.filter(event =>
-    event.title.toLowerCase().includes(query) ||
-    event.location.toLowerCase().includes(query) ||
-    event.category.toLowerCase().includes(query)
+  let filtered = EVENTS.filter(event =>
+    activeCategory === 'All' || event.category === activeCategory
   );
 
-  renderGrid('eventsGrid', filtered);
+  if (query) {
+    filtered = filtered.filter(event =>
+      event.title.toLowerCase().includes(query) ||
+      event.location.toLowerCase().includes(query) ||
+      event.category.toLowerCase().includes(query)
+    );
+  }
+
+  const grid = document.getElementById('eventsGrid');
+  const empty = document.getElementById('emptyState');
+
+  if (filtered.length === 0) {
+    grid.classList.add('hidden');
+    empty.classList.remove('hidden');
+  } else {
+    grid.classList.remove('hidden');
+    empty.classList.add('hidden');
+    renderGrid('eventsGrid', filtered);
+  }
+}
+document.getElementById('searchInput').addEventListener('input', applyFilters);
+
+let activeCategory = 'All';
+
+function renderChips() {
+  const categories = ['All', ...new Set(EVENTS.map(e => e.category))];
+  const container = document.getElementById('categoryChips');
+
+  container.innerHTML = categories.map(cat => `
+    <button class="chip ${cat === activeCategory ? 'active' : ''}" onclick="setCategory('${cat}')">
+      ${cat}
+    </button>`
+  ).join('');
 }
 
-document.getElementById('searchInput').addEventListener('input', applyFilters);
+function setCategory(cat) {
+  activeCategory = cat;
+  renderChips();
+  applyFilters();
+}
+
+renderChips(); // call once on page load

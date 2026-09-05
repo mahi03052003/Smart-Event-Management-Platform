@@ -47,10 +47,17 @@
   <input type="text" id="searchInput" placeholder="Search events, e.g. “gala” or “Geneva”…">
 </div>
 
+<div class="chips" id="categoryChips"></div>
+
     <div class="grid" id="eventsGrid">
       <!-- event cards will be injected here on Day 6 -->
     </div>
   </section>
+
+<div class="empty hidden" id="emptyState">
+  <h3>No matching invitations</h3>
+  <p>Try a different city, category, or search term.</p>
+</div>
 
 <section id="eventDetails" class="hidden">
   <div class="wrap">
