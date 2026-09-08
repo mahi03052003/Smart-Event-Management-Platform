@@ -29,6 +29,9 @@ function openDetails(id) {
   document.getElementById('detailSeats').textContent = event.seats;
   document.getElementById('detailDesc').textContent = event.desc;
 
+  // NEW: wire the reserve button to this specific event
+  document.getElementById('reserveBtn').onclick = () => openRegister(event.id);
+
   document.getElementById('events').classList.add('hidden');
   document.getElementById('eventDetails').classList.remove('hidden');
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -93,3 +96,24 @@ function setCategory(cat) {
 }
 
 renderChips(); // call once on page load
+
+let pendingEventId = null; // tracks which event the open form is for
+
+function openRegister(id) {
+  pendingEventId = id;
+  const event = EVENTS.find(e => e.id === id);
+  document.getElementById('regEventTitle').textContent = event.title;
+  document.getElementById('registerForm').reset();
+  document.getElementById('registerOverlay').classList.add('show');
+}
+
+function closeRegister() {
+  document.getElementById('registerOverlay').classList.remove('show');
+}
+
+document.getElementById('closeRegister').addEventListener('click', closeRegister);
+
+// Close when clicking the dark background, not the modal itself
+document.getElementById('registerOverlay').addEventListener('click', (e) => {
+  if (e.target.id === 'registerOverlay') closeRegister();
+});

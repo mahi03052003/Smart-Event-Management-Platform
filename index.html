@@ -76,7 +76,7 @@
           <div><b id="detailSeats">14</b>Seats left</div>
         </div>
         <p id="detailDesc">An evening of black-tie philanthropy...</p>
-        <button class="btn btn-solid">Reserve Your Seat</button>
+        <button class="btn btn-solid" id="reserveBtn">Reserve Your Seat</button>
       </div>
     </div>
   </div>
@@ -85,6 +85,43 @@
   <footer>
     <p>© 2026 Aurelia Curated Gatherings.</p>
   </footer>
+
+<div class="overlay" id="registerOverlay">
+  <div class="modal">
+    <button class="modal-close" id="closeRegister">✕</button>
+    <div class="modal-body">
+      <p class="eyebrow">RSVP</p>
+      <h3 id="regEventTitle">Event Title Here</h3>
+
+      <form id="registerForm">
+        <div class="field">
+          <label>Full Name</label>
+          <input type="text" id="regName" placeholder="Alexandra Hart">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Email</label>
+            <input type="text" id="regEmail" placeholder="you@company.com">
+          </div>
+          <div class="field">
+            <label>Phone</label>
+            <input type="text" id="regPhone" placeholder="+1 555 010 1234">
+          </div>
+        </div>
+        <div class="field">
+          <label>Seats Requested</label>
+          <select id="regSeats">
+            <option value="1">1 guest</option>
+            <option value="2">2 guests</option>
+            <option value="3">3 guests</option>
+            <option value="4">4 guests</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-solid" style="width:100%;">Confirm Attendance</button>
+      </form>
+    </div>
+  </div>
+</div>
 
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>

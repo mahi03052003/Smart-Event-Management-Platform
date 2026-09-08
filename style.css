@@ -167,3 +167,37 @@ footer {
 
 .empty { text-align: center; padding: 60px 20px; color: var(--slate); }
 .empty h3 { color: var(--ivory); margin-bottom: 8px; }
+
+.overlay {
+  position: fixed; inset: 0; background: rgba(6,8,12,0.72);
+  display: none; align-items: center; justify-content: center; z-index: 100; padding: 20px;
+}
+.overlay.show { display: flex; }
+
+.modal {
+  background: var(--ink-2); border: 1px solid var(--hairline); border-radius: 6px;
+  max-width: 480px; width: 100%; max-height: 88vh; overflow-y: auto; position: relative;
+}
+.modal-close {
+  position: absolute; top: 16px; right: 16px; background: none; border: none;
+  color: var(--slate); font-size: 20px; cursor: pointer;
+}
+.modal-close:hover { color: var(--ivory); }
+.modal-body { padding: 28px; }
+.modal-body h3 { font-size: 22px; margin: 6px 0 20px; }
+
+.field { margin-bottom: 16px; }
+.field label {
+  display: block; font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--slate); margin-bottom: 7px;
+}
+.field input, .field select {
+  width: 100%; padding: 12px 14px; background: var(--ink); border: 1px solid var(--hairline);
+  color: var(--ivory); border-radius: 3px; font-size: 14px; font-family: 'Inter', sans-serif;
+}
+.field input:focus, .field select:focus { outline: none; border-color: var(--gold); }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+@media (max-width: 480px) {
+  .field-row { grid-template-columns: 1fr; }
+}
