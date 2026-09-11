@@ -93,19 +93,23 @@
       <p class="eyebrow">RSVP</p>
       <h3 id="regEventTitle">Event Title Here</h3>
 
+      <div id="registerFormWrap">
       <form id="registerForm">
-        <div class="field">
+        <div class="field" id="f-name">
           <label>Full Name</label>
           <input type="text" id="regName" placeholder="Alexandra Hart">
+          <div class="err-msg">Please enter your full name.</div>
         </div>
         <div class="field-row">
-          <div class="field">
+          <div class="field" id="f-email">
             <label>Email</label>
             <input type="text" id="regEmail" placeholder="you@company.com">
+          <div class="err-msg">Enter a valid email address.</div>
           </div>
-          <div class="field">
+          <div class="field" id="f-phone">
             <label>Phone</label>
             <input type="text" id="regPhone" placeholder="+1 555 010 1234">
+         <div class="err-msg">Enter a valid phone number.</div>
           </div>
         </div>
         <div class="field">
@@ -119,6 +123,25 @@
         </div>
         <button type="submit" class="btn btn-solid" style="width:100%;">Confirm Attendance</button>
       </form>
+      </div>
+      <div id="registerConfirm" style="display:none;">
+  <div class="confirm">
+    <div class="seal">A</div>
+    <h3>You're on the list.</h3>
+    <p>A confirmation has been sent to your email. Present your reference at check-in.</p>
+    <div class="stub">
+      <div>
+        <span class="stub-label">Reference</span>
+        <span class="ref" id="confirmRef"></span>
+      </div>
+      <div style="text-align:right;">
+        <span class="stub-label">Seats</span>
+        <span class="ref" id="confirmSeats"></span>
+      </div>
+    </div>
+    <button class="btn btn-ghost" style="width:100%; margin-top:22px;" id="closeConfirm">Done</button>
+  </div>
+</div>
     </div>
   </div>
 </div>

@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;1,500&family=Inter:wght@400;500;600;700&display=swap');
 
+a { text-decoration: none; color: inherit; }
+
 :root {
   --ink: #0A0D14;
   --ink-2: #12161F;
@@ -201,3 +203,24 @@ footer {
 @media (max-width: 480px) {
   .field-row { grid-template-columns: 1fr; }
 }
+
+.field.error input { border-color: #8A2B36; }
+.field .err-msg { display: none; color: #E1808C; font-size: 11px; margin-top: 6px; }
+.field.error .err-msg { display: block; }
+
+.confirm { text-align: center; padding: 10px 0 6px; }
+.confirm .seal {
+  width: 56px; height: 56px; margin: 0 auto 18px; border: 1px solid var(--gold);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-family: 'Fraunces', serif; font-size: 22px; color: var(--gold);
+}
+.confirm p { color: var(--slate); font-size: 14px; }
+.stub {
+  margin-top: 22px; border: 1px dashed var(--hairline); border-radius: 4px;
+  padding: 16px 18px; display: flex; justify-content: space-between; text-align: left;
+}
+.stub-label {
+  display: block; font-size: 11px; color: var(--slate);
+  letter-spacing: .06em; text-transform: uppercase;
+}
+.stub .ref { font-family: 'Fraunces', serif; color: var(--gold); font-size: 15px; }
