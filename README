@@ -1,17 +1,17 @@
 Aurelia — Curated Gatherings
-Smart Event Management Platform — Module 2
+Smart Event Management Platform — Module 3
 
-Internee: Mahzaib Irshad Internship ID: ZYNVEX-CERT-1049 Program: Web Development Module: 2 of 4 — Event Details, Search & Filtering Submission window: Aug 31 – Sep 6, 2026
+Internee: Mahzaib Irshad Internship ID: ZYNVEX-CERT-1049 Program: Web Development Module: 3 of 4 — Event Registration System Submission window: Sep 7 – Sep 13, 2026
 
 📌 About This Module
 
-Module 2 builds directly on the Module 1 homepage. It adds the ability to open a full details view for any event, and to search and filter the event grid live — by keyword, and by category — before deciding which event to explore further.
+Module 3 builds directly on the Module 1 homepage and Module 2 event details/search experience. It adds a full registration flow: a validated RSVP form, duplicate-registration prevention, persistent storage of confirmed registrations, and a confirmation screen with a reference code.
 
-✅ What's Implemented in Module 2
- Event details view — shows full info (image/glyph, category, title, date, location, seats left, description) for a single event
- Card-to-details navigation — clicking any event card opens that event's details and hides the browse grid
- "Back to Events" navigation from the details view
- Live search bar — filters events by title, location, or category as the user types
- Category filter chips — auto-generated from the event data, with active-state styling
- Combined search + category filtering (both apply together, not independently)
- Empty-state message when no events match the current search/filter combination
+✅ What's Implemented in Module 3
+ Registration form UI — modal overlay with name, email, phone, and seats-requested fields
+ Form opens pre-filled with the correct event title, triggered from the "Reserve Your Seat" button on the details page
+ Client-side validation — required name, valid email format, valid phone format, with inline error messages per field
+ Duplicate-registration check — blocks the same email from registering twice for the same event (registering for different events with the same email is allowed)
+ Registrations persisted to localStorage, keyed with a generated reference code and timestamp
+ Confirmation screen shown on successful registration — displays the reference code and number of seats
+ Modal state resets correctly each time it's reopened for a new event
