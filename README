@@ -76,7 +76,7 @@ Download or clone the repository.
 Open index.html directly in any modern browser (Chrome, Edge, Firefox, Safari).
 Or open the folder in VS Code and use the Live Server extension for live-reload while editing.
 bash
-git clone <your-repo-url>
+git clone https://github.com/mahi03052003/Smart-Event-Management-Platform
 cd aurelia-events
 # then open index.html in your browser
 
@@ -95,8 +95,8 @@ Registration and enquiry modals scroll internally on short screens (max-height: 
 
 Deployed as a static site via GitHub Pages.
 
-Repository: <paste your GitHub repo URL here>
-Live URL: <paste your GitHub Pages URL here, e.g. https://<username>.github.io/aurelia-events/>
+Repository: https://github.com/mahi03052003/Smart-Event-Management-Platform
+Live URL:  https://mahi03052003.github.io/Smart-Event-Management-Platform/
 
 
 🔮 Possible Future Enhancements
