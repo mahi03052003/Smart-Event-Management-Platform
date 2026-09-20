@@ -30,3 +30,5 @@ const EVENTS = [
     desc: 'The unveiling of the Noir Collection, presented rooftop at dusk with a tasting menu from a three-Michelin-star kitchen.'
   }
 ];
+
+const EVENT_TYPES = ['Wedding', 'Birthday', 'Corporate Event', 'Private Dinner', 'Anniversary', 'Other'];

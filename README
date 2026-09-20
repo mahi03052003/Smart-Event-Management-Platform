@@ -1,17 +1,110 @@
 Aurelia — Curated Gatherings
-Smart Event Management Platform — Module 3
+Smart Event Management Platform — Final Submission (Modules 1–4)
 
-Internee: Mahzaib Irshad Internship ID: ZYNVEX-CERT-1049 Program: Web Development Module: 3 of 4 — Event Registration System Submission window: Sep 7 – Sep 13, 2026
+Internee: Mahzaib Irshad Internship ID: ZYNVEX-CERT-1049 Program: Front-end Development Batch: 3 Submission window: Aug 24 – Sep 20, 2026
 
-📌 About This Module
+📌 About the Project
 
-Module 3 builds directly on the Module 1 homepage and Module 2 event details/search experience. It adds a full registration flow: a validated RSVP form, duplicate-registration prevention, persistent storage of confirmed registrations, and a confirmation screen with a reference code.
+Aurelia is a responsive, web-based event management platform for high-profile, invitation-style events (galas, executive summits, private launches, and bespoke private commissions like weddings and corporate off-sites). It lets users browse upcoming events, view full event details, search and filter by category/date/location, register for events, manage their registrations from a personal dashboard, and submit private event enquiries — all through a single-page, data-driven front end.
 
-✅ What's Implemented in Module 3
- Registration form UI — modal overlay with name, email, phone, and seats-requested fields
- Form opens pre-filled with the correct event title, triggered from the "Reserve Your Seat" button on the details page
- Client-side validation — required name, valid email format, valid phone format, with inline error messages per field
- Duplicate-registration check — blocks the same email from registering twice for the same event (registering for different events with the same email is allowed)
- Registrations persisted to localStorage, keyed with a generated reference code and timestamp
- Confirmation screen shown on successful registration — displays the reference code and number of seats
- Modal state resets correctly each time it's reopened for a new event
+✅ Full Feature List (All Modules)
+
+Module 1 — Homepage & Event Listing
+
+Responsive navbar, hero section, and footer
+Custom visual identity (dark theme, gold accent, Fraunces + Inter typography)
+Event data model (EVENTS array) as a single source of truth
+Reusable event card component, rendered dynamically from data
+Featured Events section (auto-generated from the same data)
+Departures ticker — a live-style board showing the next 4 upcoming events
+
+Module 2 — Event Details, Search & Filtering
+
+Full event details view (image/glyph, category, title, date, location, seats left, description)
+Card-to-details navigation with correct event context on every click
+Live search bar — filters by title, location, or category as the user types
+Category filter chips, auto-generated from event data
+Combined search + category filtering (AND logic)
+Empty-state message when no events match
+
+Module 3 — Registration System
+
+RSVP registration form (name, email, phone, seats requested)
+Client-side validation — required fields, email format, phone format, with inline errors
+Duplicate-registration check (per event + email)
+Registrations persisted to localStorage with a generated reference code
+Confirmation screen showing the reference code and seat count
+
+Module 4 — Dashboard, Polish & Deployment
+
+"My Invitations" dashboard — lists all confirmed registrations, joined with event details
+Cancel/withdraw a registration directly from the dashboard
+Site-wide UI/UX polish: modal fade-in animation, toast notifications, consistent focus states, prefers-reduced-motion support
+Cross-browser and cross-device responsiveness testing and fixes
+Final code cleanup, comments, and deployment
+
+Additional Features 
+
+Private Event Enquiry ("Request Access" / "Plan Your Own Event") — a separate form for bespoke bookings (weddings, corporate events, private dinners, etc.), independent of the public event roster, also persisted to localStorage with its own reference code
+Private Commissions section — a dedicated homepage banner directing prospective hosts to the enquiry form
+Excitement & polish pass — ambient animated hero background, scroll-reveal animations on section entry, animated stat counters (events hosted, cities, guests, return rate), rotating client testimonial quotes, 3D tilt effect on event cards, and a closing call-to-action banner
+Mobile navigation menu for small screens
+🛠️ Tech Stack
+Tool	Purpose
+HTML5	Page structure
+CSS3 (Flexbox/Grid)	Layout, responsive design, animations
+JavaScript (ES6+)	DOM rendering, data handling, form logic, view routing
+Web Storage API (localStorage)	Persisting registrations and private-event requests client-side
+Google Fonts	Fraunces (display serif), Inter (body sans-serif)
+Git & GitHub	Version control and deployment (GitHub Pages)
+
+No frameworks, build tools, or backend — a fully static, vanilla front-end application.
+
+📁 Project Structure
+aurelia-events/
+├── index.html          # All page sections, modals, and view containers
+├── style.css        # All styling: theme, layout, components, responsive breakpoints, animations
+├── js/
+│   ├── data.js          # EVENTS array — the event data model
+│   └── main.js          # All rendering, view-routing, form, and storage logic
+└── README.md
+▶️ How to Run
+
+No installation or build step is required.
+
+Download or clone the repository.
+Open index.html directly in any modern browser (Chrome, Edge, Firefox, Safari).
+Or open the folder in VS Code and use the Live Server extension for live-reload while editing.
+bash
+git clone <your-repo-url>
+cd aurelia-events
+# then open index.html in your browser
+
+To inspect saved data: open DevTools → Application tab → Local Storage, and look for aurelia_registrations and the private-request storage key.
+
+🧩 How It Works — Architecture Overview
+Data layer (data.js): a single EVENTS array holds every event's id, title, category, date, location, seats, and desc. Every feature — cards, search, filters, details, registration — reads from this one source.
+Rendering (main.js): small, focused functions (cardHTML(), renderGrid(), renderFeatured(), renderTicker(), renderDashboard()) turn data into HTML strings and inject them into the DOM. Adding a new event to data.js requires zero HTML changes.
+View routing: the homepage, event details, and dashboard are separate <section>s toggled with a .hidden class rather than separate pages — kept simple with plain JavaScript, no router library.
+Search & filtering: applyFilters() narrows EVENTS by the active category chip, then further narrows by the search input, combining both conditions with AND logic.
+Forms & validation: both the registration form and the private-event enquiry form validate on submit using regex checks for email/phone and required-field checks, toggling an .error class per field with inline messages.
+Persistence: localStorage (via small get/save wrapper functions) stores registrations and private-event requests as JSON, keyed by a generated reference code, so data survives page reloads without a backend.
+Feedback: successful actions swap a form view for a confirmation view (with a reference code) rather than using intrusive browser alerts; cancellations show a toast notification.
+
+Registration and enquiry modals scroll internally on short screens (max-height: 88vh) so they never overflow the viewport.
+
+Deployed as a static site via GitHub Pages.
+
+Repository: <paste your GitHub repo URL here>
+Live URL: <paste your GitHub Pages URL here, e.g. https://<username>.github.io/aurelia-events/>
+
+
+🔮 Possible Future Enhancements
+Backend + real database (registrations currently persist only in the browser's local storage)
+Email/SMS confirmation delivery for registrations and enquiries
+Admin panel for managing events and viewing registrations/enquiries
+Payment integration for ticketed events
+User accounts / authentication instead of email-based lookups
+👤 Author
+
+Mahzaib Irshad — ZYNVEX Solutions Internship, Batch 3

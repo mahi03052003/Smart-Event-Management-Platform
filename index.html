@@ -10,141 +10,323 @@
 
   <header>
     <div class="nav">
-      <a href="#" class="brand">
+      <a href="#" class="brand" id="brandHome">
         <span>AURELIA</span>
       </a>
-      
+
       <nav class="navlinks">
         <a href="#events">Events</a>
-        <a href="#">My Invitations</a>
-        <a href="#" class="btn btn-solid">Request Access</a>
+        <a href="#" id="navMyInvitations">My Invitations</a>
+        <a href="#" class="btn btn-solid" id="requestAccessBtn">Request Access</a>
       </nav>
+
+      <button class="burger" id="burgerBtn">☰</button>
+    </div>
+
+    <div id="mobileNav" style="display:none;">
+      <a href="#events" id="mobileEvents">Events</a>
+      <a href="#" id="mobileMyInvitations">My Invitations</a>
+      <a href="#" id="mobileRequestAccess">Request Access</a>
     </div>
   </header>
 
   <section class="hero">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
     <h1>Where the right people meet, by invitation.</h1>
     <p class="lead">
       Aurelia curates a private roster of galas, summits, and closed-door
       gatherings for the world's most discerning hosts and guests.
     </p>
     <div class="hero-ctas">
-      <button class="btn btn-solid">View Upcoming Events</button>
-      <button class="btn btn-ghost">My Invitations</button>
+      <button class="btn btn-solid" id="heroViewEvents">View Upcoming Events</button>
+      <button class="btn btn-ghost" id="heroMyInvitations">My Invitations</button>
+    </div>
+
+        <div class="board">
+      <div class="board-head">
+        <p class="eyebrow">Departures — This Season</p>
+        <div class="live"><span class="dot"></span> Reservations Open</div>
+      </div>
+      <div id="boardRows"></div>
     </div>
   </section>
 
-<section id="featured">
-  <div class="wrap">
-    <h2>Featured this month</h2>
-    <div class="grid" id="featuredGrid"></div>
-  </div>
-</section>
+  <section id="stats">
+    <div class="wrap stats-grid">
+      <div class="stat reveal">
+        <h3 class="stat-num" data-target="1200" data-suffix="+">0</h3>
+        <p>Curated Events</p>
+      </div>
+      <div class="stat reveal">
+        <h3 class="stat-num" data-target="48">0</h3>
+        <p>Cities Worldwide</p>
+      </div>
+      <div class="stat reveal">
+        <h3 class="stat-num" data-target="15000" data-suffix="+">0</h3>
+        <p>Guests Hosted</p>
+      </div>
+      <div class="stat reveal">
+        <h3 class="stat-num" data-target="98" data-suffix="%">0</h3>
+        <p>Return Guest Rate</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="featured">
+    <div class="wrap">
+      <h2>Featured this month</h2>
+      <div class="grid" id="featuredGrid"></div>
+    </div>
+  </section>
 
   <section id="events">
-    <h2>Browse all gatherings</h2>
-    <div class="concierge">
-  <input type="text" id="searchInput" placeholder="Search events, e.g. “gala” or “Geneva”…">
-</div>
+    <div class="wrap">
+      <h2>Browse all gatherings</h2>
 
-<div class="chips" id="categoryChips"></div>
+      <div class="concierge">
+        <input type="text" id="searchInput" placeholder="Search events, e.g. “gala” or “Geneva”…">
+      </div>
 
-    <div class="grid" id="eventsGrid">
-      <!-- event cards will be injected here on Day 6 -->
+      <div class="chips" id="categoryChips"></div>
+
+      <div class="grid" id="eventsGrid"></div>
+
+      <div class="empty hidden" id="emptyState">
+        <h3>No matching invitations</h3>
+        <p>Try a different city, category, or search term.</p>
+      </div>
     </div>
   </section>
 
-<div class="empty hidden" id="emptyState">
-  <h3>No matching invitations</h3>
-  <p>Try a different city, category, or search term.</p>
-</div>
-
-<section id="eventDetails" class="hidden">
-  <div class="wrap">
-    <button class="btn btn-ghost" id="backToEvents">← Back to Events</button>
-
-    <div class="details-card">
-      <div class="details-art">
-        <span class="glyph" id="detailGlyph">M</span>
-        <span class="card-tag" id="detailTag">Gala</span>
-      </div>
-      <div class="details-body">
-        <h2 id="detailTitle">The Meridian Gala</h2>
-        <div class="meta-row">
-          <div><b id="detailDate">Sep 12, 2026</b>Date</div>
-          <div><b id="detailLoc">The Meridian Hotel, New York</b>Location</div>
-          <div><b id="detailSeats">14</b>Seats left</div>
+  <section id="bespoke">
+    <div class="wrap">
+      <div class="bespoke-card reveal">
+        <div class="bespoke-text">
+          <p class="eyebrow">Private Commissions</p>
+          <h2>Planning something of your own?</h2>
+          <p class="lead" style="margin:14px 0 0;">
+            Weddings, milestone birthdays, corporate off-sites, product reveals — our concierge
+            team designs and runs bespoke private events beyond the public roster. Tell us the
+            occasion; we'll take it from there.
+          </p>
         </div>
-        <p id="detailDesc">An evening of black-tie philanthropy...</p>
-        <button class="btn btn-solid" id="reserveBtn">Reserve Your Seat</button>
+        <button class="btn btn-solid" id="bespokeEnquireBtn">Enquire About a Private Event</button>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section id="eventDetails" class="hidden">
+    <div class="wrap">
+      <button class="btn btn-ghost" id="backToEvents">← Back to Events</button>
+
+      <div class="details-card">
+        <div class="details-art">
+          <span class="glyph" id="detailGlyph">M</span>
+          <span class="card-tag" id="detailTag">Gala</span>
+        </div>
+        <div class="details-body">
+          <h2 id="detailTitle">The Meridian Gala</h2>
+          <div class="meta-row">
+            <div><b id="detailDate">Sep 12, 2026</b>Date</div>
+            <div><b id="detailLoc">The Meridian Hotel, New York</b>Location</div>
+            <div><b id="detailSeats">14</b>Seats left</div>
+          </div>
+          <p id="detailDesc">An evening of black-tie philanthropy...</p>
+          <button class="btn btn-solid" id="reserveBtn">Reserve Your Seat</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="dashboard" class="hidden">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Your Account</p>
+          <h2>My Invitations</h2>
+        </div>
+        <button class="btn btn-ghost" id="backToEventsFromDash">← Back to Events</button>
+      </div>
+
+      <div class="dash-list" id="dashList"></div>
+
+      <div class="empty hidden" id="dashEmpty">
+        <h3>No confirmed invitations yet</h3>
+        <p>Reserve a seat at any gathering and it will appear here.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="inspiration">
+    <div class="wrap">
+      <p class="eyebrow reveal" style="text-align:center;">Why Hosts Choose Aurelia</p>
+      <div class="quote-box reveal">
+        <p class="quote-text" id="quoteText">"Aurelia didn't just plan our gala — they made it a night no one will forget."</p>
+        <p class="quote-author" id="quoteAuthor">— Private Host, New York</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="cta-banner">
+    <div class="wrap cta-inner reveal">
+      <h2>Ready to host something <span class="serif-italic">unforgettable</span>?</h2>
+      <p>From an intimate dinner to a five-hundred-guest gala — our concierge team designs it around you.</p>
+      <button class="btn btn-solid" id="ctaStartPlanning">Start Planning</button>
+    </div>
+  </section>
 
   <footer>
-    <p>© 2026 Aurelia Curated Gatherings.</p>
+    <p>© 2026 Aurelia Curated Gatherings| 03171515383| mahzaibirshad958@gmail.com
   </footer>
 
-<div class="overlay" id="registerOverlay">
-  <div class="modal">
-    <button class="modal-close" id="closeRegister">✕</button>
-    <div class="modal-body">
-      <p class="eyebrow">RSVP</p>
-      <h3 id="regEventTitle">Event Title Here</h3>
+  <!-- ============ REGISTRATION MODAL ============ -->
+  <div class="overlay" id="registerOverlay">
+    <div class="modal">
+      <button class="modal-close" id="closeRegister">✕</button>
+      <div class="modal-body">
+        <p class="eyebrow">RSVP</p>
+        <h3 id="regEventTitle">Event Title Here</h3>
 
-      <div id="registerFormWrap">
-      <form id="registerForm">
-        <div class="field" id="f-name">
-          <label>Full Name</label>
-          <input type="text" id="regName" placeholder="Alexandra Hart">
-          <div class="err-msg">Please enter your full name.</div>
+        <div id="registerFormWrap">
+          <form id="registerForm">
+            <div class="field" id="f-name">
+              <label>Full Name</label>
+              <input type="text" id="regName" placeholder="Alexandra Hart">
+              <div class="err-msg">Please enter your full name.</div>
+            </div>
+            <div class="field-row">
+              <div class="field" id="f-email">
+                <label>Email</label>
+                <input type="text" id="regEmail" placeholder="you@company.com">
+                <div class="err-msg">Enter a valid email address.</div>
+              </div>
+              <div class="field" id="f-phone">
+                <label>Phone</label>
+                <input type="text" id="regPhone" placeholder="+1 555 010 1234">
+                <div class="err-msg">Enter a valid phone number.</div>
+              </div>
+            </div>
+            <div class="field">
+              <label>Seats Requested</label>
+              <select id="regSeats">
+                <option value="1">1 guest</option>
+                <option value="2">2 guests</option>
+                <option value="3">3 guests</option>
+                <option value="4">4 guests</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-solid" style="width:100%;">Confirm Attendance</button>
+          </form>
         </div>
-        <div class="field-row">
-          <div class="field" id="f-email">
-            <label>Email</label>
-            <input type="text" id="regEmail" placeholder="you@company.com">
-          <div class="err-msg">Enter a valid email address.</div>
+
+        <div id="registerConfirm" style="display:none;">
+          <div class="confirm">
+            <div class="seal">A</div>
+            <h3>You're on the list.</h3>
+            <p>A confirmation has been sent to your email. Present your reference at check-in.</p>
+            <div class="stub">
+              <div>
+                <span class="stub-label">Reference</span>
+                <span class="ref" id="confirmRef"></span>
+              </div>
+              <div style="text-align:right;">
+                <span class="stub-label">Seats</span>
+                <span class="ref" id="confirmSeats"></span>
+              </div>
+            </div>
+            <button class="btn btn-ghost" style="width:100%; margin-top:22px;" id="closeConfirm">Done</button>
           </div>
-          <div class="field" id="f-phone">
-            <label>Phone</label>
-            <input type="text" id="regPhone" placeholder="+1 555 010 1234">
-         <div class="err-msg">Enter a valid phone number.</div>
-          </div>
         </div>
-        <div class="field">
-          <label>Seats Requested</label>
-          <select id="regSeats">
-            <option value="1">1 guest</option>
-            <option value="2">2 guests</option>
-            <option value="3">3 guests</option>
-            <option value="4">4 guests</option>
-          </select>
-        </div>
-        <button type="submit" class="btn btn-solid" style="width:100%;">Confirm Attendance</button>
-      </form>
-      </div>
-      <div id="registerConfirm" style="display:none;">
-  <div class="confirm">
-    <div class="seal">A</div>
-    <h3>You're on the list.</h3>
-    <p>A confirmation has been sent to your email. Present your reference at check-in.</p>
-    <div class="stub">
-      <div>
-        <span class="stub-label">Reference</span>
-        <span class="ref" id="confirmRef"></span>
-      </div>
-      <div style="text-align:right;">
-        <span class="stub-label">Seats</span>
-        <span class="ref" id="confirmSeats"></span>
       </div>
     </div>
-    <button class="btn btn-ghost" style="width:100%; margin-top:22px;" id="closeConfirm">Done</button>
   </div>
-</div>
+
+  <!-- ============ CUSTOM / PRIVATE EVENT REQUEST MODAL ============ -->
+  <div class="overlay" id="customRequestOverlay">
+    <div class="modal">
+      <button class="modal-close" id="closeCustomRequest">✕</button>
+      <div class="modal-body">
+
+        <div id="customRequestFormWrap">
+          <p class="eyebrow">Private Enquiry</p>
+          <h3 style="margin-bottom:8px;">Plan Your Own Event</h3>
+          <p style="color:var(--slate);font-size:13px;margin-bottom:20px;">
+            Weddings, private dinners, corporate functions — tell us what you have in mind and our concierge team will be in touch.
+          </p>
+          <form id="customRequestForm">
+            <div class="field" id="cf-name">
+              <label>Full Name</label>
+              <input type="text" id="cfName" placeholder="Alexandra Hart">
+              <div class="err-msg">Please enter your full name.</div>
+            </div>
+            <div class="field-row">
+              <div class="field" id="cf-email">
+                <label>Email</label>
+                <input type="text" id="cfEmail" placeholder="you@company.com">
+                <div class="err-msg">Enter a valid email address.</div>
+              </div>
+              <div class="field" id="cf-phone">
+                <label>Phone</label>
+                <input type="text" id="cfPhone" placeholder="+1 555 010 1234">
+                <div class="err-msg">Enter a valid phone number.</div>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field" id="cf-type">
+                <label>Event Type</label>
+                <select id="cfEventType">
+                  <option value="Wedding">Wedding</option>
+                  <option value="Birthday">Birthday</option>
+                  <option value="Corporate Event">Corporate Event</option>
+                  <option value="Private Dinner">Private Dinner</option>
+                  <option value="Anniversary">Anniversary</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="field" id="cf-date">
+                <label>Preferred Date</label>
+                <input type="date" id="cfDate">
+              </div>
+            </div>
+            <div class="field" id="cf-guests">
+              <label>Estimated Guests</label>
+              <input type="text" id="cfGuests" placeholder="e.g. 120">
+              <div class="err-msg">Enter an estimated guest count.</div>
+            </div>
+            <div class="field" id="cf-message">
+              <label>Tell us about your event</label>
+              <textarea id="cfMessage" rows="4" placeholder="Venue preferences, theme, special requests…"></textarea>
+            </div>
+            <button type="submit" class="btn btn-solid" style="width:100%;margin-top:6px;">Submit Request</button>
+          </form>
+        </div>
+
+        <div id="customRequestConfirm" style="display:none;">
+          <div class="confirm">
+            <div class="seal">A</div>
+            <h3>Request received.</h3>
+            <p>Our concierge team will reach out within 24 hours to discuss your event.</p>
+            <div class="stub">
+              <div>
+                <span class="stub-label">Reference</span>
+                <span class="ref" id="cfConfirmRef"></span>
+              </div>
+              <div style="text-align:right;">
+                <span class="stub-label">Event Type</span>
+                <span class="ref" id="cfConfirmType"></span>
+              </div>
+            </div>
+            <button class="btn btn-ghost" style="width:100%;margin-top:22px;" id="closeCustomConfirm">Done</button>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
-</div>
+
+  <div class="toast" id="toast"></div>
 
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
